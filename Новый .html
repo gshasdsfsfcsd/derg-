@@ -1,0 +1,489 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Федеральная территория "Сириус"</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        }
+
+        header {
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        nav {
+            background-color: #003366;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s;
+                position: relative;
+            }
+
+                .nav-links a:hover {
+                    color: #4dabf7;
+                }
+
+                .nav-links a::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 2px;
+                    bottom: -5px;
+                    left: 0;
+                    background-color: #4dabf7;
+                    transition: width 0.3s;
+                }
+
+                .nav-links a:hover::after {
+                    width: 100%;
+                }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #003366;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+            border-bottom: 2px solid #4dabf7;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #0066cc;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .model-viewer {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 2rem 0;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .model-info {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .model-description {
+            flex: 1;
+        }
+
+        .model-stats {
+            flex: 1;
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            margin-bottom: 1rem;
+        }
+
+            .stat-item strong {
+                color: #003366;
+            }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 0.7rem 1.2rem;
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+            .control-btn:hover {
+                background-color: #0052a3;
+                transform: translateY(-2px);
+            }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            height: 200px;
+        }
+
+            .gallery-item:hover {
+                transform: translateY(-5px);
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            padding: 0 2rem;
+        }
+
+        .footer-column h4 {
+            color: #4dabf7;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+            .footer-column ul li {
+                margin-bottom: 0.8rem;
+            }
+
+                .footer-column ul li a {
+                    color: #e0e0e0;
+                    text-decoration: none;
+                    transition: color 0.3s;
+                }
+
+                    .footer-column ul li a:hover {
+                        color: #4dabf7;
+                    }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .model-info {
+                flex-direction: column;
+            }
+
+            .model-viewer {
+                height: 350px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://sochisirius.ru/images/logo.png" alt="Логотип Сириуса" class="logo">
+            <h1>Федеральная территория "Сириус"</h1>
+            <p>Центр образования, науки и спорта мирового уровня на берегу Чёрного моря</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://sochisirius.ru/images/logo-white.png" alt="Сириус" height="40">
+            </div>
+            <div class="nav-links">
+                <a href="#about">О Сириусе</a>
+                <a href="#education">Образовательный центр</a>
+                <a href="#olympic">Олимпийские объекты</a>
+                <a href="#science">Научные центры</a>
+                <a href="#gallery">Галерея</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>О федеральной территории "Сириус"</h2>
+            <p>Федеральная территория "Сириус" — это инновационный научно-технологический и образовательный центр, созданный на базе олимпийской инфраструктуры в Сочи. Здесь соединяются передовые научные исследования, современное образование и спортивные достижения.</p>
+
+            <div class="model-viewer" id="sirius-map"></div>
+
+            <div class="controls">
+                <button class="control-btn" onclick="resetCamera('sirius-map')">Сбросить вид</button>
+                <button class="control-btn" onclick="toggleLabels('sirius-map')">Показать объекты</button>
+                <button class="control-btn" onclick="toggleTerrain('sirius-map')">Рельеф местности</button>
+            </div>
+
+            <div class="model-info">
+                <div class="model-description">
+                    <h3>История создания</h3>
+                    <p>Образовательный центр "Сириус" был создан в 2015 году по инициативе Президента Российской Федерации В.В. Путина на базе олимпийских объектов. В 2020 году территория получила статус федеральной.</p>
+                    <p>Сегодня "Сириус" — это точка притяжения для талантливых детей, ведущих ученых и спортсменов со всей страны.</p>
+                </div>
+                <div class="model-stats">
+                    <h3>Ключевые показатели</h3>
+                    <div class="stat-item"><strong>Площадь:</strong> 1 354 га</div>
+                    <div class="stat-item"><strong>Население:</strong> ~15 000 человек</div>
+                    <div class="stat-item"><strong>Образовательные программы:</strong> 200+ ежегодно</div>
+                    <div class="stat-item"><strong>Участники:</strong> 50 000+ одаренных детей</div>
+                    <div class="stat-item"><strong>Научные центры:</strong> 15 лабораторий</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Образовательный центр</h2>
+            <p>Главный кампус образовательного центра "Сириус" — это современный комплекс зданий, где проходят обучение талантливые школьники со всей России.</p>
+
+            <div class="model-viewer" id="education-campus"></div>
+
+            <div class="controls">
+                <button class="control-btn" onclick="resetCamera('education-campus')">Сбросить вид</button>
+                <button class="control-btn" onclick="toggleWireframe('education-campus')">Каркасная модель</button>
+                <button class="control-btn" onclick="explodeModel('education-campus')">Разобрать здание</button>
+            </div>
+
+            <div class="model-info">
+                <div class="model-description">
+                    <h3>Архитектурные особенности</h3>
+                    <p>Кампус образовательного центра представляет собой комплекс из 7 корпусов, соединенных переходами. Архитектура зданий сочетает современные технологии и экологичные решения.</p>
+                    <p>Главный корпус имеет форму морской волны, что символизирует расположение центра на берегу Черного моря.</p>
+                </div>
+                <div class="model-stats">
+                    <h3>Характеристики</h3>
+                    <div class="stat-item"><strong>Площадь кампуса:</strong> 45 000 м²</div>
+                    <div class="stat-item"><strong>Учебные аудитории:</strong> 120</div>
+                    <div class="stat-item"><strong>Лаборатории:</strong> 35</div>
+                    <div class="stat-item"><strong>Жилые комнаты:</strong> 800</div>
+                    <div class="stat-item"><strong>Год постройки:</strong> 2015</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="olympic">
+            <h2>Олимпийские объекты</h2>
+            <p>На территории "Сириуса" расположены ключевые объекты зимних Олимпийских игр 2014 года, которые теперь используются для образовательных и спортивных программ.</p>
+
+            <div class="model-viewer" id="olympic-park"></div>
+
+            <div class="controls">
+                <button class="control-btn" onclick="resetCamera('olympic-park')">Сбросить вид</button>
+                <button class="control-btn" onclick="highlightStadium('olympic-park')">Стадион "Фишт"</button>
+                <button class="control-btn" onclick="highlightArena('olympic-park')">Ледовый дворец</button>
+                <button class="control-btn" onclick="highlightSkating('olympic-park')">Конькобежный центр</button>
+            </div>
+
+            <div class="model-info">
+                <div class="model-description">
+                    <h3>Олимпийское наследие</h3>
+                    <p>Олимпийский парк "Сириуса" включает в себя 6 крупных спортивных объектов, расположенных вокруг Медальной площади. Эти сооружения были построены к зимним Олимпийским играм 2014 года и теперь адаптированы для круглогодичного использования.</p>
+                </div>
+                <div class="model-stats">
+                    <h3>Основные объекты</h3>
+                    <div class="stat-item"><strong>Стадион "Фишт":</strong> 40 000 мест</div>
+                    <div class="stat-item"><strong>Ледовый дворец "Большой":</strong> 12 000 мест</div>
+                    <div class="stat-item"><strong>Конькобежный центр "Адлер-Арена":</strong> 8 000 мест</div>
+                    <div class="stat-item"><strong>Дворец зимнего спорта "Айсберг":</strong> 12 000 мест</div>
+                    <div class="stat-item"><strong>Кёрлинговый центр "Ледяной куб":</strong> 3 000 мест</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="science">
+            <h2>Научные центры</h2>
+            <p>"Сириус" является площадкой для передовых научных исследований в области генетики, информационных технологий, когнитивных наук и других направлениях.</p>
+
+            <div class="model-viewer" id="science-center"></div>
+
+            <div class="controls">
+                <button class="control-btn" onclick="resetCamera('science-center')">Сбросить вид</button>
+                <button class="control-btn" onclick="toggleSections('science-center')">Показать секции</button>
+                <button class="control-btn" onclick="nightMode('science-center')">Ночной режим</button>
+            </div>
+
+            <div class="model-info">
+                <div class="model-description">
+                    <h3>Научно-технологический университет</h3>
+                    <p>Главное научное здание "Сириуса" представляет собой современный исследовательский комплекс с 15 лабораториями мирового уровня. Архитектура здания символизирует связь науки и природы.</p>
+                    <p>Центр оснащен уникальным оборудованием для исследований в области биомедицины, искусственного интеллекта, нанотехнологий и других перспективных направлений.</p>
+                </div>
+                <div class="model-stats">
+                    <h3>Лаборатории</h3>
+                    <div class="stat-item"><strong>Генетика и науки о жизни:</strong> 4 лаборатории</div>
+                    <div class="stat-item"><strong>Информационные технологии:</strong> 3 лаборатории</div>
+                    <div class="stat-item"><strong>Когнитивные исследования:</strong> 2 лаборатории</div>
+                    <div class="stat-item"><strong>Нанотехнологии:</strong> 3 лаборатории</div>
+                    <div class="stat-item"><strong>Космические технологии:</strong> 1 лаборатория</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Галерея "Сириуса"</h2>
+            <p>Фотографии территории, образовательного процесса и научных исследований в "Сириусе".</p>
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/9e9b2a6d0a.jpg" alt="Кампус Сириуса">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/3d9c9c1c5b.jpg" alt="Лаборатории">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/8b6c3a3e0a.jpg" alt="Олимпийский парк">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/5e7d4b2d0a.jpg" alt="Образовательный процесс">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/4f8e5a1c0a.jpg" alt="Научные исследования">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/7a9b8c0d0a.jpg" alt="Спортивные объекты">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>О Сириусе</h4>
+                <ul>
+                    <li><a href="#">История</a></li>
+                    <li><a href="#">Миссия и ценности</a></li>
+                    <li><a href="#">Руководство</a></li>
+                    <li><a href="#">Документы</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Образование</h4>
+                <ul>
+                    <li><a href="#">Направления обучения</a></li>
+                    <li><a href="#">Как поступить</a></li>
+                    <li><a href="#">Преподаватели</a></li>
+                    <li><a href="#">Партнеры</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Наука</h4>
+                <ul>
+                    <
