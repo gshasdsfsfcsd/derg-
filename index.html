@@ -3,8 +3,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Федеральная территория "Сириус"</title>
-    <!-- Google Model Viewer для 3D -->
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -25,10 +23,7 @@
         }
 
         header {
-            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 102, 204, 0.8)), 
-                        url('https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/9e9b2a6d0a.jpg');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #003366 0%, #0066cc 100%);
             color: white;
             text-align: center;
             padding: 3rem 0;
@@ -83,32 +78,32 @@
             gap: 2rem;
         }
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
+            .nav-links a {
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s;
+                position: relative;
+            }
 
-        .nav-links a:hover {
-            color: #4dabf7;
-        }
+                .nav-links a:hover {
+                    color: #4dabf7;
+                }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #4dabf7;
-            transition: width 0.3s;
-        }
+                .nav-links a::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 2px;
+                    bottom: -5px;
+                    left: 0;
+                    background-color: #4dabf7;
+                    transition: width 0.3s;
+                }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+                .nav-links a:hover::after {
+                    width: 100%;
+                }
 
         .container {
             max-width: 1200px;
@@ -152,11 +147,6 @@
             margin: 2rem 0;
             border: 1px solid #e0e0e0;
             position: relative;
-            display: none;
-        }
-
-        .active-model {
-            display: block;
         }
 
         .model-info {
@@ -180,9 +170,9 @@
             margin-bottom: 1rem;
         }
 
-        .stat-item strong {
-            color: #003366;
-        }
+            .stat-item strong {
+                color: #003366;
+            }
 
         .controls {
             display: flex;
@@ -202,10 +192,10 @@
             font-weight: 500;
         }
 
-        .control-btn:hover {
-            background-color: #0052a3;
-            transform: translateY(-2px);
-        }
+            .control-btn:hover {
+                background-color: #0052a3;
+                transform: translateY(-2px);
+            }
 
         .gallery {
             display: grid;
@@ -222,15 +212,15 @@
             height: 200px;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
+            .gallery-item:hover {
+                transform: translateY(-5px);
+            }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
 
         footer {
             background-color: #003366;
@@ -259,91 +249,24 @@
             list-style: none;
         }
 
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
+            .footer-column ul li {
+                margin-bottom: 0.8rem;
+            }
 
-        .footer-column ul li a {
-            color: #e0e0e0;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+                .footer-column ul li a {
+                    color: #e0e0e0;
+                    text-decoration: none;
+                    transition: color 0.3s;
+                }
 
-        .footer-column ul li a:hover {
-            color: #4dabf7;
-        }
+                    .footer-column ul li a:hover {
+                        color: #4dabf7;
+                    }
 
         .copyright {
             margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .object-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .object-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .object-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .object-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .object-content {
-            padding: 1.5rem;
-        }
-
-        .partners {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .partner-logo {
-            height: 80px;
-            width: auto;
-            object-fit: contain;
-            filter: grayscale(100%);
-            transition: filter 0.3s;
-        }
-
-        .partner-logo:hover {
-            filter: grayscale(0%);
-        }
-
-        .loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #003366;
-            font-weight: bold;
         }
 
         @media (max-width: 768px) {
@@ -369,23 +292,6 @@
             header h1 {
                 font-size: 2.2rem;
             }
-
-            .hero-image {
-                height: 250px;
-            }
-            
-            .object-card {
-                margin-bottom: 1.5rem;
-            }
-        }
-
-        /* Стили для Model Viewer */
-        model-viewer {
-            width: 100%;
-            height: 500px;
-            margin: 2rem 0;
-            border-radius: 8px;
-            --poster-color: transparent;
         }
     </style>
 </head>
@@ -404,10 +310,10 @@
                 <img src="https://sochisirius.ru/images/logo-white.png" alt="Сириус" height="40">
             </div>
             <div class="nav-links">
-                <a href="#about" onclick="showModel('sirius-map')">О Сириусе</a>
-                <a href="#education" onclick="showModel('education-campus')">Образовательный центр</a>
-                <a href="#olympic" onclick="showModel('olympic-park')">Олимпийские объекты</a>
-                <a href="#science" onclick="showModel('science-center')">Научные центры</a>
+                <a href="#about">О Сириусе</a>
+                <a href="#education">Образовательный центр</a>
+                <a href="#olympic">Олимпийские объекты</a>
+                <a href="#science">Научные центры</a>
                 <a href="#gallery">Галерея</a>
             </div>
         </div>
@@ -416,21 +322,10 @@
     <div class="container">
         <section id="about">
             <h2>О федеральной территории "Сириус"</h2>
-            
-            <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/3d9c9c1c5b.jpg" alt="Панорама Сириуса" class="hero-image">
-            
-            <!-- 3D-модель территории Сириуса -->
-            <model-viewer 
-                id="sirius-map"
-                src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
-                alt="3D карта Сириуса"
-                ar
-                camera-controls
-                auto-rotate
-                style="width:100%; height:500px;">
-                <div class="loading">Загрузка 3D модели...</div>
-            </model-viewer>
-            
+            <p>Федеральная территория "Сириус" — это инновационный научно-технологический и образовательный центр, созданный на базе олимпийской инфраструктуры в Сочи. Здесь соединяются передовые научные исследования, современное образование и спортивные достижения.</p>
+
+            <div class="model-viewer" id="sirius-map"></div>
+
             <div class="controls">
                 <button class="control-btn" onclick="resetCamera('sirius-map')">Сбросить вид</button>
                 <button class="control-btn" onclick="toggleLabels('sirius-map')">Показать объекты</button>
@@ -452,52 +347,14 @@
                     <div class="stat-item"><strong>Научные центры:</strong> 15 лабораторий</div>
                 </div>
             </div>
-
-            <h3>Ключевые объекты</h3>
-            <div class="object-cards">
-                <div class="object-card" onclick="showModel('education-campus')">
-                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/5e7d4b2d0a.jpg" alt="Образовательный центр" class="object-image">
-                    <div class="object-content">
-                        <h4>Образовательный центр</h4>
-                        <p>Главный кампус для одарённых детей со всей России с современными лабораториями и классами.</p>
-                    </div>
-                </div>
-                
-                <div class="object-card" onclick="showModel('olympic-park')">
-                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/7a9b8c0d0a.jpg" alt="Олимпийские объекты" class="object-image">
-                    <div class="object-content">
-                        <h4>Олимпийские объекты</h4>
-                        <p>Стадион "Фишт", ледовые арены и другие сооружения зимних Олимпийских игр 2014 года.</p>
-                    </div>
-                </div>
-                
-                <div class="object-card" onclick="showModel('science-center')">
-                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/4f8e5a1c0a.jpg" alt="Научный центр" class="object-image">
-                    <div class="object-content">
-                        <h4>Научно-технологический университет</h4>
-                        <p>Передовые исследования в области генетики, ИИ, нанотехнологий и других направлениях.</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <section id="education">
             <h2>Образовательный центр</h2>
             <p>Главный кампус образовательного центра "Сириус" — это современный комплекс зданий, где проходят обучение талантливые школьники со всей России.</p>
-            
-            <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/8b6c3a3e0a.jpg" alt="Образовательный центр" class="hero-image">
-            
-            <!-- 3D-модель кампуса -->
-            <model-viewer 
-                id="education-campus"
-                src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"
-                alt="3D модель кампуса"
-                ar
-                camera-controls
-                style="width:100%; height:500px;">
-                <div class="loading">Загрузка 3D модели...</div>
-            </model-viewer>
-            
+
+            <div class="model-viewer" id="education-campus"></div>
+
             <div class="controls">
                 <button class="control-btn" onclick="resetCamera('education-campus')">Сбросить вид</button>
                 <button class="control-btn" onclick="toggleWireframe('education-campus')">Каркасная модель</button>
@@ -524,20 +381,9 @@
         <section id="olympic">
             <h2>Олимпийские объекты</h2>
             <p>На территории "Сириуса" расположены ключевые объекты зимних Олимпийских игр 2014 года, которые теперь используются для образовательных и спортивных программ.</p>
-            
-            <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/6c5d4b3a29.jpg" alt="Олимпийский парк" class="hero-image">
-            
-            <!-- 3D-модель Олимпийского парка -->
-            <model-viewer 
-                id="olympic-park"
-                src="https://modelviewer.dev/shared-assets/models/Astronaut.glb"
-                alt="3D модель Олимпийского парка"
-                ar
-                camera-controls
-                style="width:100%; height:500px;">
-                <div class="loading">Загрузка 3D модели...</div>
-            </model-viewer>
-            
+
+            <div class="model-viewer" id="olympic-park"></div>
+
             <div class="controls">
                 <button class="control-btn" onclick="resetCamera('olympic-park')">Сбросить вид</button>
                 <button class="control-btn" onclick="highlightStadium('olympic-park')">Стадион "Фишт"</button>
@@ -564,20 +410,9 @@
         <section id="science">
             <h2>Научные центры</h2>
             <p>"Сириус" является площадкой для передовых научных исследований в области генетики, информационных технологий, когнитивных наук и других направлениях.</p>
-            
-            <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/2b1a090807.jpg" alt="Научный центр" class="hero-image">
-            
-            <!-- 3D-модель научного центра -->
-            <model-viewer 
-                id="science-center"
-                src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"
-                alt="3D модель научного центра"
-                ar
-                camera-controls
-                style="width:100%; height:500px;">
-                <div class="loading">Загрузка 3D модели...</div>
-            </model-viewer>
-            
+
+            <div class="model-viewer" id="science-center"></div>
+
             <div class="controls">
                 <button class="control-btn" onclick="resetCamera('science-center')">Сбросить вид</button>
                 <button class="control-btn" onclick="toggleSections('science-center')">Показать секции</button>
@@ -592,11 +427,37 @@
                 </div>
                 <div class="model-stats">
                     <h3>Лаборатории</h3>
-                    <div class="stat-item"><strong>Генетика и биомедицина</strong></div>
-                    <div class="stat-item"><strong>Искусственный интеллект</strong></div>
-                    <div class="stat-item"><strong>Нанотехнологии</strong></div>
-                    <div class="stat-item"><strong>Когнитивные исследования</strong></div>
-                    <div class="stat-item"><strong>Квантовые вычисления</strong></div>
+                    <div class="stat-item"><strong>Генетика и науки о жизни:</strong> 4 лаборатории</div>
+                    <div class="stat-item"><strong>Информационные технологии:</strong> 3 лаборатории</div>
+                    <div class="stat-item"><strong>Когнитивные исследования:</strong> 2 лаборатории</div>
+                    <div class="stat-item"><strong>Нанотехнологии:</strong> 3 лаборатории</div>
+                    <div class="stat-item"><strong>Космические технологии:</strong> 1 лаборатория</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Галерея "Сириуса"</h2>
+            <p>Фотографии территории, образовательного процесса и научных исследований в "Сириусе".</p>
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/9e9b2a6d0a.jpg" alt="Кампус Сириуса">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/3d9c9c1c5b.jpg" alt="Лаборатории">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/8b6c3a3e0a.jpg" alt="Олимпийский парк">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/5e7d4b2d0a.jpg" alt="Образовательный процесс">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/4f8e5a1c0a.jpg" alt="Научные исследования">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://sochisirius.ru/uploads/images/00/93/47/2022/11/21/7a9b8c0d0a.jpg" alt="Спортивные объекты">
                 </div>
             </div>
         </section>
@@ -605,96 +466,24 @@
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h4>Контакты</h4>
+                <h4>О Сириусе</h4>
                 <ul>
-                    <li><a href="tel:+78001007622">8 (800) 100-76-22</a></li>
-                    <li><a href="mailto:info@sochisirius.ru">info@sochisirius.ru</a></li>
-                    <li>г. Сочи, Олимпийский проспект, 1</li>
+                    <li><a href="#">История</a></li>
+                    <li><a href="#">Миссия и ценности</a></li>
+                    <li><a href="#">Руководство</a></li>
+                    <li><a href="#">Документы</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h4>Навигация</h4>
+                <h4>Образование</h4>
                 <ul>
-                    <li><a href="#about">О Сириусе</a></li>
-                    <li><a href="#education">Образование</a></li>
-                    <li><a href="#olympic">Спорт</a></li>
-                    <li><a href="#science">Наука</a></li>
+                    <li><a href="#">Направления обучения</a></li>
+                    <li><a href="#">Как поступить</a></li>
+                    <li><a href="#">Преподаватели</a></li>
+                    <li><a href="#">Партнеры</a></li>
                 </ul>
             </div>
             <div class="footer-column">
-                <h4>Соцсети</h4>
+                <h4>Наука</h4>
                 <ul>
-                    <li><a href="https://vk.com/siriussochi">ВКонтакте</a></li>
-                    <li><a href="https://t.me/sirius_sochi">Telegram</a></li>
-                    <li><a href="https://www.youtube.com/c/ОбразовательныйцентрСириус">YouTube</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>© 2023 Федеральная территория "Сириус"</p>
-        </div>
-    </footer>
-
-    <script>
-        // Показываем модель при загрузке страницы
-        document.addEventListener('DOMContentLoaded', function() {
-            showModel('sirius-map');
-        });
-
-        // Функции управления 3D-моделями
-        function showModel(modelId) {
-            document.querySelectorAll('model-viewer').forEach(el => {
-                el.style.display = 'none';
-            });
-            document.getElementById(modelId).style.display = 'block';
-            scrollToSection(modelId);
-        }
-
-        function scrollToSection(modelId) {
-            const sectionMap = {
-                'sirius-map': 'about',
-                'education-campus': 'education',
-                'olympic-park': 'olympic',
-                'science-center': 'science'
-            };
-            const sectionId = sectionMap[modelId];
-            if (sectionId) {
-                document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        function resetCamera(modelId) {
-            const model = document.getElementById(modelId);
-            model.cameraOrbit = '0deg 75deg 100%';
-            model.cameraTarget = '0m 0m 0m';
-        }
-
-        function toggleWireframe(modelId) {
-            const model = document.getElementById(modelId);
-            model.toggleAttribute('wireframe');
-        }
-
-        function toggleLabels(modelId) {
-            alert('Функция показа меток в разработке');
-        }
-
-        function toggleTerrain(modelId) {
-            alert('Функция рельефа местности в разработке');
-        }
-
-        function explodeModel(modelId) {
-            alert('Функция разбора модели в разработке');
-        }
-
-        function highlightStadium(modelId) {
-            alert('Функция подсветки стадиона в разработке');
-        }
-
-        function nightMode(modelId) {
-            const model = document.getElementById(modelId);
-            model.style.backgroundColor = '#1a1a1a';
-            model.style.setProperty('--environment-image', 'none');
-        }
-    </script>
-</body>
-</html>
+                    <
