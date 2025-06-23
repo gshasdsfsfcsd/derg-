@@ -269,6 +269,81 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* Стили для раздела с 3D моделями */
+        .models-promo {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e1e5eb 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+        }
+
+        .models-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .model-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .model-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .model-thumbnail {
+            height: 180px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .model-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .model-content {
+            padding: 1.2rem;
+        }
+
+        .model-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #003366;
+        }
+
+        .model-price {
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 0.8rem;
+        }
+
+        .model-btn {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+
+        .model-btn:hover {
+            background-color: #0052a3;
+        }
+
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -314,6 +389,7 @@
                 <a href="#education">Образовательный центр</a>
                 <a href="#olympic">Олимпийские объекты</a>
                 <a href="#science">Научные центры</a>
+                <a href="#3dmodels">3D Модели</a>
                 <a href="#gallery">Галерея</a>
             </div>
         </div>
@@ -436,6 +512,65 @@
             </div>
         </section>
 
+        <section id="3dmodels" class="models-promo">
+            <h2>3D Модели объектов "Сириуса"</h2>
+            <p>Приобретите детализированные 3D модели объектов федеральной территории "Сириус" для ваших проектов и исследований. Все модели оптимизированы для использования в архитектурных визуализациях, игровых движках и VR/AR приложениях.</p>
+            
+            <div class="models-container">
+                <div class="model-card">
+                    <div class="model-thumbnail">
+                        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/building-3025708-2526912.png" alt="Главный корпус">
+                    </div>
+                    <div class="model-content">
+                        <h3 class="model-title">Главный корпус "Сириуса"</h3>
+                        <div class="model-price">4 990 ₽</div>
+                        <p>Детализированная модель главного корпуса с текстурами высокого разрешения.</p>
+                        <a href="#" class="model-btn">Купить модель</a>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-thumbnail">
+                        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/stadium-3025711-2526915.png" alt="Стадион Фишт">
+                    </div>
+                    <div class="model-content">
+                        <h3 class="model-title">Стадион "Фишт"</h3>
+                        <div class="model-price">6 500 ₽</div>
+                        <p>Полная 3D модель олимпийского стадиона с анимацией раздвижной крыши.</p>
+                        <a href="#" class="model-btn">Купить модель</a>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-thumbnail">
+                        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/science-lab-3025710-2526914.png" alt="Научный центр">
+                    </div>
+                    <div class="model-content">
+                        <h3 class="model-title">Научно-технологический центр</h3>
+                        <div class="model-price">5 750 ₽</div>
+                        <p>Модель научного центра с интерьерами лабораторий и исследовательских зон.</p>
+                        <a href="#" class="model-btn">Купить модель</a>
+                    </div>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-thumbnail">
+                        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/hotel-building-3025709-2526913.png" alt="Кампус">
+                    </div>
+                    <div class="model-content">
+                        <h3 class="model-title">Жилой кампус</h3>
+                        <div class="model-price">3 990 ₽</div>
+                        <p>3D модель жилого комплекса с вариантами внутренней планировки.</p>
+                        <a href="#" class="model-btn">Купить модель</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" style="display: inline-block; padding: 1rem 2rem; background-color: #0066cc; color: white; text-decoration: none; border-radius: 5px; font-weight: 500;">Посмотреть все модели</a>
+            </div>
+        </section>
+
         <section id="gallery">
             <h2>Галерея "Сириуса"</h2>
             <p>Фотографии территории, образовательного процесса и научных исследований в "Сириусе".</p>
@@ -486,4 +621,25 @@
             <div class="footer-column">
                 <h4>Наука</h4>
                 <ul>
-                    <
+                    <li><a href="#">Исследовательские центры</a></li>
+                    <li><a href="#">Научные публикации</a></li>
+                    <li><a href="#">Гранты</a></li>
+                    <li><a href="#">Технологии</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><a href="#">Адрес: г. Сочи, Олимпийский проспект, 1</a></li>
+                    <li><a href="tel:+78001007622">Телефон: 8 (800) 100-76-22</a></li>
+                    <li><a href="mailto:info@sochisirius.ru">Email: info@sochisirius.ru</a></li>
+                    <li><a href="#">Социальные сети</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Федеральная территория "Сириус". Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
