@@ -1,20 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>itle>C:\Users\User\Desktop\wwwrootmodels.glb</title>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-</head>
-<body>
-    <model-viewer 
-        src="model.glb" 
-        alt="A 3D model" 
-        ar
-        camera-controls
-        auto-rotate
-        style="width: 100%; height: 500px;">
-    </model-viewer>
-    
+<head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Федеральная территория "Сириус"</title>
+    <!-- Добавляем model-viewer -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -151,14 +141,15 @@
             line-height: 1.8;
         }
 
-        .model-viewer {
+        /* Стили для model-viewer */
+        model-viewer {
             width: 100%;
             height: 500px;
+            background-color: #eee;
+            margin: 2rem 0;
             border-radius: 8px;
             overflow: hidden;
-            margin: 2rem 0;
             border: 1px solid #e0e0e0;
-            position: relative;
         }
 
         .model-info {
@@ -372,13 +363,23 @@
                 flex-direction: column;
             }
 
-            .model-viewer {
+            model-viewer {
                 height: 350px;
             }
 
             header h1 {
                 font-size: 2.2rem;
             }
+        }
+
+        /* Кнопка AR */
+        model-viewer::part(default-ar-button) {
+            background-color: #0066cc;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 15px;
+            bottom: 20px;
+            right: 20px;
         }
     </style>
 </head>
@@ -412,7 +413,7 @@
             <h2>О федеральной территории "Сириус"</h2>
             <p>Федеральная территория "Сириус" — это инновационный научно-технологический и образовательный центр, созданный на базе олимпийской инфраструктуры в Сочи. Здесь соединяются передовые научные исследования, современное образование и спортивные достижения.</p>
 
-            <div class="C:\Users\User\Desktop" id="sirius-map"></div>
+            <div class="model-viewer" id="sirius-map"></div>
 
             <div class="controls">
                 <button class="control-btn" onclick="resetCamera('sirius-map')">Сбросить вид</button>
@@ -441,12 +442,22 @@
             <h2>Образовательный центр</h2>
             <p>Главный кампус образовательного центра "Сириус" — это современный комплекс зданий, где проходят обучение талантливые школьники со всей России.</p>
 
-            <div class="model-viewer" id="education-campus"></div>
+                     <model-viewer 
+                id="education-campus"
+                src="wwwroot/models.glb" 
+                alt="3D модель кампуса Сириус"
+                ar
+                ar-modes="webxr scene-viewer quick-look"
+                environment-image="neutral"
+                auto-rotate
+                camera-controls
+                shadow-intensity="1">
+            </model-viewer>
 
             <div class="controls">
                 <button class="control-btn" onclick="resetCamera('education-campus')">Сбросить вид</button>
+                <button class="control-btn" onclick="document.querySelector('#education-campus').toggleAttribute('auto-rotate')">Вкл/Выкл вращение</button>
                 <button class="control-btn" onclick="toggleWireframe('education-campus')">Каркасная модель</button>
-                <button class="control-btn" onclick="explodeModel('education-campus')">Разобрать здание</button>
             </div>
 
             <div class="model-info">
@@ -466,6 +477,7 @@
             </div>
         </section>
 
+        <!-- Остальные секции остаются без изменений -->
         <section id="olympic">
             <h2>Олимпийские объекты</h2>
             <p>На территории "Сириуса" расположены ключевые объекты зимних Олимпийских игр 2014 года, которые теперь используются для образовательных и спортивных программ.</p>
@@ -653,5 +665,57 @@
             <p>© 2025 Федеральная территория "Сириус". Все права защищены.</p>
         </div>
     </footer>
+
+    <script>
+        // Функции для управления моделью
+        function resetCamera(modelId) {
+            const model = document.getElementById(modelId);
+            if (model) {
+                model.cameraOrbit = '0deg 75deg 105%';
+            }
+        }
+
+        function toggleWireframe(modelId) {
+            const model = document.getElementById(modelId);
+            if (model) {
+                model.toggleAttribute('wireframe');
+            }
+        }
+
+        function toggleLabels(modelId) {
+            console.log('Toggle labels for', modelId);
+            // Реализуйте эту функцию по необходимости
+        }
+
+        function toggleTerrain(modelId) {
+            console.log('Toggle terrain for', modelId);
+            // Реализуйте эту функцию по необходимости
+        }
+
+        function highlightStadium(modelId) {
+            console.log('Highlight stadium for', modelId);
+            // Реализуйте эту функцию по необходимости
+        }
+
+        function highlightArena(modelId) {
+            console.log('Highlight arena for', modelId);
+            // Реализуйте эту функцию по необходимости
+        }
+
+        function highlightSkating(modelId) {
+            console.log('Highlight skating center for', modelId);
+            // Реализуйте эту функцию по необходимости
+        }
+
+        function toggleSections(modelId) {
+            console.log('Toggle sections for', modelId);
+            // Реализуйте эту функцию по необходимости
+        }
+
+        function nightMode(modelId) {
+            console.log('Toggle night mode for', modelId);
+            // Реализуйте эту функцию по необходимости
+        }
+    </script>
 </body>
 </html>
